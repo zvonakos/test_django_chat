@@ -1,4 +1,3 @@
-from django.urls import path, include
 from rest_framework import routers
 from apps.chat.views import ThreadViewSet, MessageViewSet
 

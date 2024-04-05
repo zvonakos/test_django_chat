@@ -4,6 +4,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from rest_framework.exceptions import ValidationError
 
+# I could've placed all these models Timestamp UUID and authentication as a separate app
+# but in the given case I don't see it's quite necessary for now
+# In case of a real project sure it requires purer differentiation
+
 
 class TimeStamp(models.Model):
     """
@@ -26,7 +30,7 @@ class UUIDModel(models.Model):
 class Thread(TimeStamp, UUIDModel):
     participants = models.ManyToManyField(User, related_name='threads')
 
-    def clean(self):
+    def clean(self):  # Making sure that in thread were only 2 participants
         if self.participants.count() != 2:
             raise ValidationError('Only 2 user allowed')
 
