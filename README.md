@@ -15,7 +15,7 @@ After running first 7 commands which set up initial data use Postman or analog s
 }
 - http://127.0.0.1:8000/chats/threads/ - [GET] retrieves data about all threads and messages of all users(UI point of view it's incorrect but kept just for the ease of use the same can be with the other endpoints which are not meantioned)
 - http://127.0.0.1:8000/chats/threads/ - [POST] creates Thread between 2 users and sends messages
-* example of body - '''json{
+* example of body - {
             "participants": [
                 {
                     "id": 1,
@@ -36,9 +36,9 @@ After running first 7 commands which set up initial data use Postman or analog s
                     "text": "Message 2 from user 2 to user",
                     "is_read": false
                 }]
-        }'''
+        }
 - http://127.0.0.1:8000/chats/threads/(id)/ - [GET] retrieves messages of specific Thread(automatically changes status of all unread messages to read)
-* example of response - '''json {
+* example of response - {
     "id": "2d480477-7d1b-4555-b033-21ea8a881ac9",
     "participants": [
         {
@@ -64,7 +64,7 @@ After running first 7 commands which set up initial data use Postman or analog s
             "is_read": false
         }
     ]
-}'''
+}
 - http://127.0.0.1:8000/chats/threads/unread-count/ - [GET] retrieves number of unread messages
 * example of response - [
     {
